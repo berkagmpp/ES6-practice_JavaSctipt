@@ -8,9 +8,8 @@ document.getElementById("button").addEventListener("click", function () {
     let remove = document.createElement("button");
     let removeMark = document.createTextNode("x");
     remove.setAttribute("class", "targetRemoveBtn");
-    remove.addEventListener("click", function (event) {
-        event.target.parentNode.remove();
-    });
+    remove.addEventListener("click", removeParentNode);
+
     li.textContent = inputBox.value;
     remove.appendChild(removeMark);
     li.appendChild(remove);
@@ -22,8 +21,15 @@ document.getElementById("button").addEventListener("click", function () {
 document.getElementById("before").addEventListener("click", function () {
     let ui = document.querySelector("ul");
     let li = document.createElement("li");
+    let remove = document.createElement("button");
+    let removeMark = document.createTextNode("x");
     let targetLi = document.querySelector("li#target");
+
+    remove.setAttribute("class", "targetRemoveBtn");
+    remove.addEventListener("click", removeParentNode);
+    remove.appendChild(removeMark);
     li.textContent = inputBox.value;
+    li.appendChild(remove);
     ui.insertBefore(li, targetLi);
     // insertBefore() method inserts a node before a reference node
     // as a child of a specified parent node
@@ -35,3 +41,10 @@ document
     .addEventListener("click", function (event) {
         event.target.parentNode.remove();
     });
+
+// 4.prentNode.remove()
+function removeParentNode(event) {
+    event.target.parentNode.remove();
+    inputBox.value = "";
+    inputBox.focus(); //Re-position the cursor to the input
+}
