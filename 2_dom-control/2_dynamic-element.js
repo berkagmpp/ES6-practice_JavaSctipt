@@ -1,17 +1,16 @@
 let inputBox = document.querySelector("input");
+let ui = document.querySelector("ul");
 // Add dynamic li element node
 
 // 1. appendChild()
 document.getElementById("button").addEventListener("click", function () {
-    let ui = document.querySelector("ul");
     let li = document.createElement("li");
     let remove = document.createElement("button");
-    let removeMark = document.createTextNode("x");
+    remove.textContent = "x";
     remove.setAttribute("class", "targetRemoveBtn");
     remove.addEventListener("click", removeParentNode);
 
     li.textContent = inputBox.value;
-    remove.appendChild(removeMark);
     li.appendChild(remove);
     ui.appendChild(li);
     // appendChild() method adds a node to the end of the list
@@ -19,15 +18,13 @@ document.getElementById("button").addEventListener("click", function () {
 
 // 2. insertBefore()
 document.getElementById("before").addEventListener("click", function () {
-    let ui = document.querySelector("ul");
     let li = document.createElement("li");
-    let remove = document.createElement("button");
-    let removeMark = document.createTextNode("x");
     let targetLi = document.querySelector("li#target");
+    let remove = document.createElement("button");
 
+    remove.textContent = "x";
     remove.setAttribute("class", "targetRemoveBtn");
     remove.addEventListener("click", removeParentNode);
-    remove.appendChild(removeMark);
     li.textContent = inputBox.value;
     li.appendChild(remove);
     ui.insertBefore(li, targetLi);
