@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="6_event-form.js" defer></script>
+        <title>Event Form</title>
+    </head>
+    <body>
+        <h2>Input</h2>
+        <input type="text" id="input-box" />
+        <hr / >
+        <h2>Submit test</h2>
+        <form action="/server-url" onsubmit="alert('submited')">
+            <label for="username">
+                <input type="text" name="username" />
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
