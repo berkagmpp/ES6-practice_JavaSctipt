@@ -1,4 +1,5 @@
 let inputBox = document.getElementById("input-box");
+let img = document.querySelector("img");
 
 // inputBox.addEventListener("keypress", function (event) {
 //     console.log("Key pressed");
@@ -20,4 +21,10 @@ let inputBox = document.getElementById("input-box");
 
 inputBox.addEventListener("change", function (event) {
     console.log("change");
+});
+
+img.addEventListener("error", function (event) {
+    console.log("error");
+    event.target.src = "../../img/koala.jpg";
+    // can set to show another image when error occurs
 });
