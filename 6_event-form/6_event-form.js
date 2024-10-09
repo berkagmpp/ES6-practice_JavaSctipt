@@ -26,5 +26,5 @@ inputBox.addEventListener("change", function (event) {
 img.addEventListener("error", function (event) {
     console.log("error");
     event.target.src = "../../img/koala.jpg";
-    // can set to show another image when error occurs
+    // can set to show alternative image when error occurs
 });
