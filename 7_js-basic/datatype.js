@@ -19,13 +19,13 @@ console.log(typeof num5); // number
 
 const num6 = 5 + '5';
 console.log(num6); // 55
-console.log(typeof num6); // number
+console.log(typeof num6); // string
 
 const num7 = 5 - 'number';
 console.log(num7); // NaN
 console.log(typeof num7); // number
 
-// String
+// String interpolation
 const age = 25;
 console.log('I am ' + age + ' years old.'); // Concatenation
 console.log(`I am ${age} years old.`); // Template literals
@@ -117,7 +117,7 @@ const app = fruit[0];
 const ban = fruit[1];
 const che = fruit[2];
 
-// destructuring assignment
+// distructuring assignment
 const [appl, bana, cher, ...others] = fruit;
 console.log(appl); // apple
 console.log(bana); // banana
