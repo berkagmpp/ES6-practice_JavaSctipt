@@ -64,3 +64,8 @@ function sum2(a = 0, b = 0) {
 }
 console.log(`sum2: ${sum2()}`); // a: 0, b: 0 sum2: 0
 console.log(`sum2: ${sum2(5)}`); // a: 5, b: 0 sum2: 5
+
+// functions and variables naming
+// both use camel case
+// functions: verb + noun       ex) getFruit, setFruit
+// variables: noun      ex) fruits, usernames, removeItem
