@@ -128,7 +128,7 @@ console.log(userData.name);
 // Because it is an independent method that has no association with the userData object, this in the callback function does not indicate the userData object.
 // In general, functions that call the callback function do not set this separately, so the global object is bound by default.
 
-// Create a callback function to protect 'this' within the callback function
+// 5. Create a callback function to protect 'this' within the callback function
 // 1) using call(), apply(), bind()
 
 // call() : Use 'this' object as the first factor, the remaining argumants are separated by ','
@@ -178,3 +178,30 @@ getUserName4('Jack', 'Do4', (firstName, lastName) => {
 
 console.log('1: ', userData.name); // Jack Do4
 console.log('2: ', window.name); // Not Set
+
+// 6. callback function hell
+// the callback passed as an parameter of the function is repeatedly called,
+// and code indentation becames too deep and difficult to read and understand
+function add(x, callback) {
+    let sum = x + x;
+    console.log(sum);
+    callback(sum);
+}
+
+add(2, function (result) {
+    add(result, function (result) {
+        add(result, function (result) {
+            add(result, function (result) {
+                add(result, function (result) {
+                    console.log('finish!!');
+                });
+            });
+        });
+    });
+});
+// 4 8 16 32 64 finish!!
+
+// 7. asyncronous and callback function
+// Asynchronous: performing other tasks in parallel without stopping the tasks that are currently running
+// Asynchronous performance when there are multiple tasks allows tasks to be performed simultaneously, enabling faster processing of final tasks
+// Callback is one of the expedients of handling tasks in an asynchronous way
