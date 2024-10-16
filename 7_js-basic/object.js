@@ -185,26 +185,77 @@ function createFruit(kind, taste, price) {
     };
 }
 
-// call by value and call by reference
-// call by value: primitive data types (number, string, boolean, null, undefined)
-// call by reference: object data types (object, array, function)
+// 6. call by value and call by reference
+// 6.1) call by value: primitive data types (number, string, boolean, null, undefined)
 let studentName = 'Alice'; // primitive data type
 
 console.log(studentName); // Alice
 changeName(studentName);
-console.log(studentName); // Alice (unchanged): because the primitive data type is call by value
+console.log(studentName); // Alice (unchanged): because the primitive data type has a value
+// changeName(studentName) duplicate the value of studentName and pass it to the function
 // the function parameter is changed inside the function, but the variable is not changed
-// the function parameter is a copy of the variable, so the variable is not changed
+// studentName is Alice, and name(inside changeName()) is Bob: deferent memory location
 
 function changeName(name) {
     name = 'Bob';
     console.log(name); // Bob
 }
 
+// 6.2) call by reference
 let student = {
     name: 'Alice',
 }; // object data type
 
 console.log(student.name); // Alice
 changeName(student);
-console.log(student.name); // Bob
+console.log(student.name); // Bob (changed): because the object data type has a reference
+// student parameter of changeName(student) is not a copy of student, but a reference of student object
+// student is a reference of the object, so the reference(location) is passed to the function
+// as a result, reference of student object and name object is the same
+
+// 7. object copy by reference and by value
+const banana = {
+    color: 'yellow',
+    price: 2,
+};
+
+let mango = banana; // copy by reference
+// mango and banana are looking at the same value in memory
+mango.color = 'green';
+console.log(banana.color); // green (changed): because the object is copied by reference
+
+banana.price = 3; // price value of reference of banana is changed (not the reference itself)
+
+// banana = {
+//     weight: 1,
+// }; // error: because the reference of banana cannot be added or changed
+
+// 7.1) using spread operator(...) to copy by value (ES6)
+const apple = {
+    ...banana, // spread operator: copy by value
+};
+apple.color = 'red';
+console.log(banana.color); // green (unchanged): because the object is copied by value
+
+// 7.2) using Object.assign() to copy by value
+const orange = Object.assign({}, banana); // copy by value
+orange.color = 'orange';
+console.log(banana.color); // green (unchanged): because the object is copied by value
+
+// 8. for in loop (ES6)
+// for in loop is used to iterate through the properties of an object
+// for in loop is used for objects, not for arrays
+for (let key in banana) {
+    console.log(key, banana[key]);
+}
+// color green  price 3    // key: value
+
+// 9. check a property exists in an object
+// 9.1) in operator
+// in operator is used to check if a property exists in an object
+console.log('color' in banana); // true
+console.log('weight' in banana); // false
+
+// 9.2) Object.hasOwn(), object.hasOwnProperty()
+console.log(banana.hasOwnProperty('color')); // true
+console.log(Object.hasOwn(banana, 'color')); // true
