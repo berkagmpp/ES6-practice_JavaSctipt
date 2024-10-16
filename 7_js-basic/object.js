@@ -201,7 +201,7 @@ function changeName(name) {
     console.log(name); // Bob
 }
 
-// 6.2) call by reference
+// 6.2) call by reference: object data types (object, array, function)
 let student = {
     name: 'Alice',
 }; // object data type
