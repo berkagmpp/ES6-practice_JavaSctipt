@@ -184,3 +184,27 @@ function createFruit(kind, taste, price) {
         price, // price: price
     };
 }
+
+// call by value and call by reference
+// call by value: primitive data types (number, string, boolean, null, undefined)
+// call by reference: object data types (object, array, function)
+let studentName = 'Alice'; // primitive data type
+
+console.log(studentName); // Alice
+changeName(studentName);
+console.log(studentName); // Alice (unchanged): because the primitive data type is call by value
+// the function parameter is changed inside the function, but the variable is not changed
+// the function parameter is a copy of the variable, so the variable is not changed
+
+function changeName(name) {
+    name = 'Bob';
+    console.log(name); // Bob
+}
+
+let student = {
+    name: 'Alice',
+}; // object data type
+
+console.log(student.name); // Alice
+changeName(student);
+console.log(student.name); // Bob
