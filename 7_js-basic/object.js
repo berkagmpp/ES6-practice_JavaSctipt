@@ -259,3 +259,7 @@ console.log('weight' in banana); // false
 // 9.2) Object.hasOwn(), object.hasOwnProperty()
 console.log(banana.hasOwnProperty('color')); // true
 console.log(Object.hasOwn(banana, 'color')); // true
+
+window.onload = () => {
+    // ...code to be executed
+};
