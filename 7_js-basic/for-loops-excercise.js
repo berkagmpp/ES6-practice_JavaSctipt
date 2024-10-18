@@ -82,3 +82,32 @@ for (const num of arrayN) {
     sum2 += num;
 }
 console.log(sum2);
+
+const num2 = [30, 130, 34, 2, 334, 58, 98];
+
+// 8) display the average after calculating it
+let sum3 = 0;
+for (const num of num2) {
+    sum3 += num;
+}
+console.log(`the average: ${sum3 / num2.length}`);
+
+// 9) the sum of even numbers from 0 to 100
+let sum4 = 0;
+for (let i = 1; i <= 100; i++) {
+    if (i % 2 === 0) {
+        sum4 += i;
+    }
+}
+console.log(sum4);
+
+// 10) The reversed string of 'hello world'
+const string = 'hello world';
+let stringArray = Array.from(string);
+let reversedString = [];
+console.log(stringArray);
+for (let i = stringArray.length - 1; i >= 0; i--) {
+    reversedString.push(stringArray[i]);
+}
+console.log(reversedString.toString().replaceAll(',', ''));
+console.log(reversedString.join('')); // -> better
