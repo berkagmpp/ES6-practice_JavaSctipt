@@ -61,3 +61,34 @@ let newStudents3 = students3.map((students3) => {
     // return the object with the value of sum: math + english.
 });
 console.log(newStudents3);
+
+// 4. reduce(), the spread operator and destructurin
+// Write a function to calculate the total sum of all scores, regardless of the number of students
+let students4 = [
+    { id: 1, name: 'Kim', score: { math: 50, english: 70 } },
+    { id: 2, name: 'Park', score: { math: 80, english: 60 } },
+    { id: 3, name: 'Lee', score: { math: 70, english: 50 } },
+    { id: 4, name: 'Choi', score: { math: 70, english: 50 } },
+];
+
+const total = students4.reduce((sum, newScore) => {
+    // reduce() -> reduce the array to a single value. can use only array.
+    // sum -> the initial value is 0.
+    // newScore -> the value of students4 array.
+    const { math, english } = newScore.score;
+    return sum + math + english;
+    // return the sum of sum and math + english.
+    // the value of sum is the sum of the previous iteration.
+}, 0);
+console.log(total);
+
+// 5) reduce(), the spread operator and destructurin + 'rest operator'
+const sum = (...array) => {
+    // rest operator -> change the array to the array.
+    return array.reduce((sum, newScore) => {
+        const { math, english } = newScore.score;
+        return sum + math + english;
+    }, 0);
+};
+const result = sum(...students4);
+console.log(result);
