@@ -2,6 +2,8 @@
 // objects and arrays
 
 // 1. map() and spread operator
+// map() -> change the array. it returns a new array. can use only array.
+
 // change all the names to 'Park' in the array below.
 const students = [
     { id: 1, name: 'Kim', score: { math: 50, english: 70 } },
@@ -10,13 +12,14 @@ const students = [
 ];
 
 const newStudents = students.map((students) => ({ ...students, name: 'park' }));
-// map() -> change the array. it returns a new array. can use only array.
 // spread(...students) -> copy the value of students array.
 // name(value of students) -> change the name to 'park'.
 // By wrapping the object in parentheses, you make it clear to JavaScript that you intend to return an object, not define a function body.
 console.log(newStudents);
 
 // 2. filter(), map(), and spread operator
+// filter() -> filter the array. it returns a new array. can use only array.
+
 // Find the people with the name 'Kim' in the array below, and add science: 100 and history: 100 to their score
 const students2 = [
     {
@@ -63,6 +66,17 @@ let newStudents3 = students3.map((students3) => {
 console.log(newStudents3);
 
 // 4. reduce(), the spread operator and destructurin
+// reduce() -> accumulate the value of each element in the array iteratively
+// values can be returned in the desired shape (numbers, objects, arrays, etc)
+
+// array.reduce((accumulator, currentValue, index, array) => {...}, initialValue);
+// accumulator -> the value of return of the previous callback function or initialValue.
+// currentValue -> current value of element in the array.
+// index -> the index of the current element.(optional)
+// array -> the array that reduce() was called upon.(optional)
+// initialValue -> the initial value of accumulator.(optional)
+// If no initialValue, the first element of the array is used as the initial value, and the iteration starts from the second element.
+
 // Write a function to calculate the total sum of all scores, regardless of the number of students
 let students4 = [
     { id: 1, name: 'Kim', score: { math: 50, english: 70 } },
@@ -72,14 +86,12 @@ let students4 = [
 ];
 
 const total = students4.reduce((sum, newScore) => {
-    // reduce() -> reduce the array to a single value. can use only array.
-    // sum -> the initial value is 0.
     // newScore -> the value of students4 array.
     const { math, english } = newScore.score;
     return sum + math + english;
     // return the sum of sum and math + english.
     // the value of sum is the sum of the previous iteration.
-}, 0);
+}, 0); // the initial value of sum is 0.
 console.log(total);
 
 // 5) reduce(), the spread operator and destructurin + 'rest operator'
