@@ -137,3 +137,35 @@ const uniqueNum = array2.reduce((acc, cur) => {
     return acc;
 }, []);
 console.log(uniqueNum);
+
+/* *When do you use the reduce() method?
+
+1) get the sum of all elements in an array
+const sum = cart.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.price;
+}, 0)
+
+2) get only one value from an array (everage, max, min, etc)
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
+const ave = sum / numbers.length;
+
+3) get an array from merging multiple arrays
+const arrays = [[1, 2], [3, 4, 5], [6]];
+const flat = arrays.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+
+4) get one new array by modifying the values of the elements
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const dubble = numbers.reduce((accumulator, currentValue) => {
+    if (currentValue % 2 === 0) {
+        accumulator.push(currentValue * 2);
+    }
+    return accumulator;
+}, []);
+
+5) count the occurrences of duplicate elements in an array and represent them in an object
+const data = ['apple', 'banana', 'peach', 'apple', 'banana', 'apple'];
+const count = data.reduce((accumulator, currentValue) => {
+      accumulator[currentValue] = (accumulator[currentValue] || 0) + 1;
+      return accumulator;
+}, {});
+*/
