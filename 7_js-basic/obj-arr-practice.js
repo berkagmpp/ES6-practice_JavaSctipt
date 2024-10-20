@@ -65,17 +65,20 @@ let newStudents3 = students3.map((students3) => {
 });
 console.log(newStudents3);
 
-// 4. reduce(), the spread operator and destructurin
-// reduce() -> accumulate the value of each element in the array iteratively
-// values can be returned in the desired shape (numbers, objects, arrays, etc)
+/**
+* 4. reduce(), the spread operator and destructurin
+* reduce() -> accumulate the value of each element in the array iteratively
+* values can be returned in the desired shape (numbers, objects, arrays, etc)
 
-// array.reduce((accumulator, currentValue, index, array) => {...}, initialValue);
-// accumulator -> the value of return of the previous callback function or initialValue.
-// currentValue -> current value of element in the array.
-// index -> the index of the current element.(optional)
-// array -> the array that reduce() was called upon.(optional)
-// initialValue -> the initial value of accumulator.(optional)
-// If no initialValue, the first element of the array is used as the initial value, and the iteration starts from the second element.
+* full----array.reduce((accumulator, currentValue, index, array) => {...}, initialValue);
+* easily----array.reduce((previousValue(+accumulate), currentValue) => {// code here}, initialValue)
+* accumulator -> the value of return of the previous callback function or initialValue.
+* currentValue -> current value of element in the array.
+* index -> the index of the current element.(optional)
+* array -> the array that reduce() was called upon.(optional)
+* initialValue -> the initial value of accumulator.(optional)
+* If no initialValue, the first element of the array is used as the initial value, and the iteration starts from the second element.
+*/
 
 // Write a function to calculate the total sum of all scores, regardless of the number of students
 let students4 = [
@@ -104,3 +107,33 @@ const sum = (...array) => {
 };
 const result = sum(...students4);
 console.log(result);
+
+// 5.1) reduce() objects array practice
+const friends = [
+    { name: 'John', age: 20 },
+    { name: 'Chris', age: 25 },
+    { name: 'Tom', age: 30 },
+    { name: 'Jane', age: 22 },
+    { name: 'Jill', age: 27 },
+];
+
+// 5.1.1) sum the ages of all friends
+const ageSum = friends.reduce((sum, friend) => {
+    return sum + friend.age;
+}, 0);
+console.log(ageSum);
+////////////////////////////////////////////
+
+const array2 = [1, 1, 2, 3, 3, 5];
+
+// 5.1.2) remove duplicate numbers in an array
+const uniqueNum = array2.reduce((acc, cur) => {
+    // acc is the accumulator, cur is the current value
+    if (acc.indexOf(cur) === -1) {
+        // indexOf() returns the index of the first occurrence of the current value in the accumulator
+        // -1 means not found: if the current value is not found in the accumulator
+        acc.push(cur);
+    }
+    return acc;
+}, []);
+console.log(uniqueNum);
