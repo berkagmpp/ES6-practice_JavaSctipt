@@ -1,8 +1,6 @@
 // 'this'
 // 1. 'this' definition: 'this' is an object. 'this' = the caller
 // In the global scope or in the default context, 'this' is the 'window' object.
-// In arrow functions, 'this' behaves a bit differently.
-// In strict mode, 'this' also behaves a bit differently.
 const person = {
     name: 'John',
     age: 30,
@@ -71,18 +69,28 @@ home.cleanHome(); // cleaning
 // 'this' => window
 // this.name => undefined
 
-// 4.2) this in arrow function
+// 4.2) 'this' in arrow function
 // arrow function does not have its own 'this' -> inherits from the parent scope
 const home1 = {
     name: 'your home',
     cleanHome: function () {
         setTimeout(() => {
             console.log(`cleaning ${this.name}`); // this => home1
-        }, 2000);
+        }, 2000); // 'this' is inherited from the parent scope in arrow function!!
     },
 };
 home1.cleanHome(); // cleaning your home
 // 'this' => home1
+
+// when to use arrow function in addEventListener
+document.querySelector('#thisBtn').addEventListener('click', () => {
+    console.log(this); // this => window
+    // 'this' is inherited from global scope because of arrow function
+});
+// do not use arrow function in addEventListener -> use function declaration
+document.querySelector('#thisBtn').addEventListener('click', function () {
+    console.log(this); // this => button
+});
 
 // 4.3) 'this' with bind method
 // bind method can change the context of this
@@ -99,3 +107,17 @@ const home2 = {
 };
 home2.cleanHome(); // cleaning our home
 // 'this' => home2
+
+// 4.4) 'this' with strict mode
+// 'use strict' -> 'this' is undefined in strict mode
+const home3 = {
+    name: 'their home',
+    cleanHome: function () {
+        'use strict';
+        setTimeout(function () {
+            console.log(`cleaning ${this.name}`);
+        }, 2000);
+    },
+};
+home3.cleanHome(); // cleaning
+console.log(`home3.this: ${home3.this}`); // home3.this: undefined

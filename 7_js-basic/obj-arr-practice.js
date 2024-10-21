@@ -48,6 +48,7 @@ const newStudents2 = students2
 // in map(), spread(...students2) -> copy the value of students2 array.
 
 console.log(newStudents2);
+// result: [ { id: 1, name: 'Kim', score: { math: 50, english: 70, korean: 30, physics: 60, science: 100, history: 100 } }, { id: 2, name: 'Kim', score: { math: 80, english: 60, korean: 40, physics: 40, science: 100, history: 100 } } ]
 
 // 3. map(), the spread operator and destructuring
 // add a sum: (total score) property to the score object for each student in the array
@@ -66,7 +67,7 @@ let newStudents3 = students3.map((students3) => {
 console.log(newStudents3);
 
 /**
-* 4. reduce(), the spread operator and destructurin
+* 4. reduce(), the spread operator and destruction
 * reduce() -> accumulate the value of each element in the array iteratively
 * values can be returned in the desired shape (numbers, objects, arrays, etc)
 
